@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 //TEST
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
