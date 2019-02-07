@@ -16,4 +16,8 @@ class FavorisController extends Controller
     	}
     	return back();
     }
+
+    public function show() {
+    	return view('favoris.show', ['favoris' => auth()->user()->favoris]);
+    }
 }
