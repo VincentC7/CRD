@@ -20,7 +20,7 @@ class CreateCandidaturesTable extends Migration
             $table->string('etat')->default('En attente');
             $table->string('lieuDep')->default(null);
             $table->boolean('transport');
-            $table->string('typeVehicule');
+            $table->boolean('vehiculeNormal');
             $table->timestamps();
         });
     }
