@@ -6,7 +6,7 @@
     <div class="separator2"></div>
 
     @if(auth()->user()->candidatures()->count()==0)
-        <h5 class="text-center">Vous n'avez postulé à aucune candidature</h5>
+        <h5 class="text-center">Vous n'avez postulé à aucune offre</h5>
     @else
         <ul class="list-group col-md-offset-1 col-md-10 col-sm-12">
             @foreach(auth()->user()->candidatures as $candidature)

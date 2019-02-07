@@ -53,3 +53,5 @@ Route::get('/profil', function(){
     return view ('profil');
 });
 
+Route::get('/OffreEmplois/{offre}/changeFavoris', 'FavorisController@change')->middleware('auth')->name('favoris.change');
+

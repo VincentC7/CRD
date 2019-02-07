@@ -30,4 +30,8 @@ class OffreEmplois extends Model {
         return $this->hasMany('App\Candidature', 'id_offre');
     }
 
+    public function favoris() {
+        return $this->hasMany('App\Favoris', 'offer_id');
+    }
+
 }

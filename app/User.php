@@ -36,8 +36,20 @@ class User extends Authenticatable
 
     }
 
+    public function favoris() {
+        return $this->hasMany('App\Favoris', 'user_id');
+    }
 
     public function documents(){
         return $this->hasMany('App\Document', 'id_proprietaire');
+    }
+
+    public function hasFavoris(OffreEmplois $offre) {
+        foreach($this->favoris as $fav) {
+            if($fav->offer_id === $offre->id) {
+                return true;
+            }
+        }
+        return false;
     }
 }
