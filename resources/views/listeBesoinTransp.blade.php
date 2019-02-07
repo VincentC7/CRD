@@ -17,7 +17,7 @@
                     <a href="{{ route('afficherCandidaturePublic',['id'=>$t->id]) }}">
                         <button class="btn-sm btn-info ">Information</button></a>
 
-                    <a class="pull-right"  href="{{ route('afficherCandidaturePublic',['id'=>$t->id]) }}">
+                    <a class="pull-right"  href="">
                         <button class="btn-sm btn-info "> Postuler </button></a>
                 </li>
             @endforeach

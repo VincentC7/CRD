@@ -21,7 +21,7 @@
         <div class="separator2"></div>
         {{$offre->employer()->name}} <Br>
         <Br>
-        @if(auth()->user()->id != $offre->employer()->id && auth()->user()->candidatures()->where('id','=',$offre->id)->count()==0)
+        @if(auth()->user()->id != $offre->employer()->id && auth()->user()->candidatures()->where('id_offre','=',$offre->id)->count()==0)
         <a href="{{ URL::to('/OffreEmplois/'.$offre->id.'/Postuler') }}"> <button class="btn btn-success"> Postuler </button></a>
         @endif
     </div>
