@@ -23,6 +23,11 @@
             <div><p>{{$user->description}}</p></div>
         @endif
 
+        <div class="separator2"></div>
+
+        @can('modify', $user)
+            <a href="{{ route('user.edit', $user) }}" class="btn btn-primary is-link">Modifier le profil</a>
+        @endcan
     </section>
 
 @endsection
