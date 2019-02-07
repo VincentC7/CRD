@@ -25,6 +25,7 @@ class OffreEmploisController extends Controller {
             'descriptionPoste'=> ['required', 'min:5'],
             'duree'=> ['required', 'min:5'],
             'lieu' => ['required', 'min:5'],
+            'categorie' => 'required',
         ]);
         $id_cat = Categorie::where('nom','=', request('categorie'))->first()->id;
 
