@@ -27,6 +27,8 @@
 
 
 
+
+
         @can('modify', $user)
             <div class="separator2"></div>
             <a href="{{ route('user.edit', $user) }}" class="btn btn-dark is-link">Modifier le profil</a>

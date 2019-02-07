@@ -122,5 +122,9 @@ class UserController extends Controller
         return view('user.profil',['user'=>User::findOrFail($us), 'admin'=>$admin]);
     }
 
+    public function showCandidatures() {
+        return view('listeCandidatures');
+    }
+
 
 }

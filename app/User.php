@@ -33,6 +33,7 @@ class User extends Authenticatable
 
     public function candidatures(){
         return $this->hasMany('App\Candidature', 'id_candidat');
+
     }
 
 
