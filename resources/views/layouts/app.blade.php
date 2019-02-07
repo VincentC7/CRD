@@ -50,6 +50,7 @@
                         <li><a href="{{ route('login') }}">Connexion</a></li>
                         <li><a href="{{ route('register') }}">Enregistrement</a></li>
                     @else
+                        <li><a href="{{route('transports')}}"> Transports </a> </li>
                         <li><a href="{{ URL::to('/OffreEmplois')}}">Offres d'emploi</a></li>
                         <li><a href="{{ route('favoris.show') }}">Mes offres favorites</a></li>
                         <li class="dropdown">

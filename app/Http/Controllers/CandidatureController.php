@@ -46,6 +46,10 @@ class CandidatureController extends Controller {
         return view('vueCandidature', ['candidature' => Candidature::findOrFail($id)]);
     }
 
+    public function displayPublic($id) {
+        return view('infoCandidPublic', ['candidature' => Candidature::findOrFail($id)]);
+    }
+
     public function traiter($candidature){
         return view('traiterCandidature', ['candidature' => Candidature::findOrFail($candidature)]);
     }

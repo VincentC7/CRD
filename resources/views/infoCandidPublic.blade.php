@@ -8,24 +8,30 @@
         <section class="text-center">
             <h3>Transport spécifique</h3>
             <p>
-            @if($candidature->transport==1)
+                @if($candidature->transport==1)
                     Type de véhicule : {{$candidature->typeVehicule}}
-             @else
+                @else
                     Aucun transport demandé
 
-             @endif
-        </p>
+                @endif
+            </p>
 
         </section>
         <div class="separator2"></div>
         <section class="border-dark text-center">
             <h3 >Lieu de départ</h3>
             <p>
-            @if(is_null($candidature->lieuDep) || $candidature->lieuDep=="")
-                Non spécifié
-            @else
-                {{$candidature->lieuDep}}
-            @endif
+                @if(is_null($candidature->lieuDep) || $candidature->lieuDep=="")
+                    Non spécifié
+                @else
+                    {{$candidature->lieuDep}}
+                @endif
+            </p>
+        </section>
+        <section class="border-dark text-center">
+            <h3 >Lieu de arrive</h3>
+            <p>
+              {{$candidature->offre()->first()->lieu_travail}}
             </p>
         </section>
         <div class="separator2"></div>
@@ -39,22 +45,6 @@
                 @endif
             </p>
         </section>
-        <h3 class="text-center">Votre candidature est {{$candidature->etat}}</h3>
-        <div class="text-center center-block">
-            <a href="{{URL::to('/OffreEmplois/'.$candidature->offre()->first()->id)}}"><button class="btn-lg btn-info">Voir l'offre</button></a>
-        </div>
-        <br>
-        <div class="text-center center-block">
-            <a href="{{URL::to('/profil/candidature/'.$candidature->id.'/edit')}}"><button class="btn-lg btn-dark">Modifier la candidature</button></a>
-        </div>
-        <br>
-        <div class="text-center center-block">
-            <a href="{{route('deleteCandidature', ['id'=>$candidature->id])}}"><button class="btn-lg btn-danger">Supprimer la candidature</button></a>
-        </div>
-
-
-
-
     </div>
 
 
