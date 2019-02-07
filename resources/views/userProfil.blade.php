@@ -14,7 +14,7 @@
         @else
             <div><p>{{$user->description}}</p></div>
         @endif
-       
+
     </section>
 
 @endsection

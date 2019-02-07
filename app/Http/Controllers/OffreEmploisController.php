@@ -30,7 +30,7 @@ class OffreEmploisController extends Controller {
             'id_employer'=> Auth::user()->id,
             'profil' => request( 'descriptionPoste'),
             'durée' => request('duree'),
-            'lieu_travail' => "eazeaed",
+            'lieu_travail' => request('lieu'),
             'id_categorie' => $id_cat,
         ]);
         return redirect('/OffreEmplois');

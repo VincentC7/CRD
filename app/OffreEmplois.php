@@ -12,4 +12,8 @@ class OffreEmplois extends Model {
         'lieu_travail',
         'id_categorie',
     ];
+
+    public function categNom($id){
+        return Categorie::findOrFail($id)->nom;
+    }
 }
