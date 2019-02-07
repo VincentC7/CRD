@@ -72,6 +72,6 @@ class UserController extends Controller
         $admin = Auth::user()->admin==1;
 
 
-        return view('userProfile',['user'=>User::findOrFail($us), 'admin'=>$admin]);
+        return view('user.profil',['user'=>User::findOrFail($us), 'admin'=>$admin]);
     }
 }
