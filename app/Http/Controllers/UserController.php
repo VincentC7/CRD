@@ -49,7 +49,14 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        abort_unless(auth()->user()->can('modify', $user), 404);
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed'
+        ]);
+        $user->update($validated);
+        return view('user.profil', compact('user'));
     }
 
     /**

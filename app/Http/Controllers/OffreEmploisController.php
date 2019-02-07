@@ -25,9 +25,9 @@ class OffreEmploisController extends Controller {
             'descriptionPoste'=> ['required', 'min:5'],
             'duree'=> ['required', 'min:5'],
             'lieu' => ['required', 'min:5'],
+            'categorie' => 'required',
         ]);
-
-        $id_cat = Categorie::where('nom', request('categorie'))->first()->id;
+        $id_cat = Categorie::where('nom','=', request('categorie'))->first()->id;
 
         OffreEmplois::create([
             'id_employer'=> Auth::user()->id,
@@ -41,8 +41,8 @@ class OffreEmploisController extends Controller {
 
 
 
-    public function show(OffreEmplois $offfre) {
-        //return view('projects.show', compact('project'));
+    public function show($offre) {
+        return view('detailsOffreEmploi', ['offre'=>OffreEmplois::findOrFail($offre)]);
     }
 
     public function edit(OffreEmplois $offre){

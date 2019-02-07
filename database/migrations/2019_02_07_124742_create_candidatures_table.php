@@ -11,8 +11,7 @@ class CreateCandidaturesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('candidatures', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_offre');

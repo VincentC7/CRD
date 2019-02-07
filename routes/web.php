@@ -24,9 +24,10 @@ Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('us
 Route::get('/profil/{user}', 'UserController@afficherProfil')->name('userProfil');
 
 //TEST
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
 
 Route::resource('user', 'UserController')->only(['edit', 'update', 'destroy', 'show'])->middleware('auth');
 
@@ -36,4 +37,3 @@ Route::get('/profil', function(){
     return view ('profil');
 });
 
-Route::resource('/create', 'OffreEmploisController@create');
