@@ -20,6 +20,7 @@ class CreateCandidaturesTable extends Migration
             $table->string('lieuDep')->default(null);
             $table->boolean('transport');
             $table->string('typeVehicule');
+            $table->string('infos');
             $table->timestamps();
         });
     }
