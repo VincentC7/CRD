@@ -1,0 +1,14 @@
+.separator {
+    height: 4px;
+    width: 130px;
+    margin: auto;
+    background: #00a5ff;
+}
+
+.separator2 {
+    height: 1px;
+    width: 50px;
+    margin: auto;
+    background: #999999;
+    margin-bottom: 10px;
+}

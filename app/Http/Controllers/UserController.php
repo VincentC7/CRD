@@ -13,9 +13,12 @@ use App\User;
 
 class UserController extends Controller
 {
-
     public function userList() {
         return view('userlist',['users'=>User::all()]);
+    }
+
+    public function afficherProfil($us) {
+        return view('userProfil',['user'=>User::findOrFail($us)]);
     }
 
 }
