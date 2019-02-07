@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('userlist');
 
-Route::get('/profil/{user}', 'UserController@afficherProfil')->name('userProfil');
+Route::get('/profil/{user}', 'UserController@displayProfile')->name('userProfil');
 
 //TEST
 Auth::routes();

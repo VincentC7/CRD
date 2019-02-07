@@ -2,7 +2,12 @@
 
 @section('content')
 
-    <h1 class="text-center page-header" style="border: none">{{$user->name}}</h1>
+    <h1 class="text-center page-header" style="border: none">{{$user->name}}
+    @if($admin)
+        <button class="btn btn-danger">Promouvoir administrateur</button>
+    @endif
+
+    </h1>
     <div class="separator2" style="width: 500px"></div>
 
     <section class="col-md-8 col-md-offset-2 col-sm-12 text-center">
@@ -10,7 +15,6 @@
         <div class="separator2"></div>
         @if(@is_null($user->description) || $user->description == "")
             <div><p>Aucune description</p></div>
-
         @else
             <div><p>{{$user->description}}</p></div>
         @endif

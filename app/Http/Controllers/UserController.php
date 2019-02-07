@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -67,7 +68,10 @@ class UserController extends Controller
         return view('userlist',['users'=>User::all()]);
     }
 
-    public function afficherProfil($us) {
-        return view('userProfil',['user'=>User::findOrFail($us)]);
+    public function displayProfile($us) {
+        $admin = Auth::user()->admin==1;
+
+
+        return view('userProfile',['user'=>User::findOrFail($us), 'admin'=>$admin]);
     }
 }
