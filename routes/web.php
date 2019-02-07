@@ -42,6 +42,7 @@ Route::get('/Candidature/{cand}/Refuse', 'CandidatureController@refuse');
 
 Route::get('/profil/candidature/{id}','CandidatureController@display')->name('afficherCandidature');
 Route::get('/profil/candidature/{id}/edit','CandidatureController@editer')->name('editerCandidature');
+Route::get('/profil/candidature/{id}/delete','CandidatureController@delete')->name('deleteCandidature');
 Route::post('/profil/candidature/{candidature}/edit','CandidatureController@saveEdition')->name('doEditerCandidature');
 
 Route::get('/home', 'HomeController@index')->name('home');

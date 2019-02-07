@@ -9,7 +9,7 @@
             <h3>Transport spécifique</h3>
             <p>
             @if($candidature->transport==1)
-                    Type de véhicule : {{$candidature->type}}
+                    Type de véhicule : {{$candidature->typeVehicule}}
              @else
                     Aucun transport demandé
 
@@ -21,10 +21,10 @@
         <section class="border-dark text-center">
             <h3 >Lieu de départ</h3>
             <p>
-            @if(is_null($candidature->lieu_dep) || $candidature->lieu_dep=="")
+            @if(is_null($candidature->lieuDep) || $candidature->lieuDep=="")
                 Non spécifié
             @else
-                {{$candidature->lieu_dep}}
+                {{$candidature->lieuDep}}
             @endif
             </p>
         </section>
@@ -32,7 +32,7 @@
         <section class="border-dark text-center">
             <h3>Informations complémentaires</h3>
             <p>
-                @if(is_null($candidature->lieu_dep) || $candidature->lieu_dep=="")
+                @if(is_null($candidature->infos) || $candidature->infos=="")
                     Vous n'avez spécifié aucune information supplémentaire
                 @else
                     {{$candidature}}->infos
@@ -49,7 +49,7 @@
         </div>
         <br>
         <div class="text-center center-block">
-            <a href=""><button class="btn-lg btn-danger">Supprimer la candidature</button></a>
+            <a href="{{route('deleteCandidature', ['id'=>$candidature->id])}}"><button class="btn-lg btn-danger">Supprimer la candidature</button></a>
         </div>
 
 

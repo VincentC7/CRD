@@ -80,15 +80,20 @@ class CandidatureController extends Controller {
             if (!is_null($infos) && $infos!="")
             $candidature->infos = $infos;
             $candidature->save();
-            return back();
+            return redirect(route('afficherCandidature', ['id' => $id]));
         } else {
             return redirect(URL::to('/'));
         }
 
-
     }
 
-    public function update(Request $request, Candidature $candidature) {
-
+    public function delete($id) {
+        $candidature = Candidature::findOrFail($id);
+        if ($candidature->id_candidat == auth()->user()->id){
+            $candidature->delete();
+            return redirect(route('user_candidatures'));
+        } else {
+            return redirect(URL::to('/'));
+        }
     }
 }
