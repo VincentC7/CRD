@@ -15,7 +15,7 @@
         Lieu : {{$offre->lieu_travail}} <Br>
         Durée : {{$offre->durée}} <Br>
         Proposé par : {{$offre->employer()->name}} <Br>
-        @if(auth()->user()->id != $offre->employer()->id && !auth()->user()->candidatures()->where('id','=',$offre->id))
+        @if(auth()->user()->id != $offre->employer()->id && auth()->user()->candidatures()->where('id','=',$offre->id)->count()==0)
         <a href="{{ URL::to('/OffreEmplois/'.$offre->id.'/Postuler') }}"> <button class="btn btn-success"> Postuler </button></a>
         @endif
     </div>
