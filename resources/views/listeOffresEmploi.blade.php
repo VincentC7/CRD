@@ -11,6 +11,7 @@
                         @foreach ($offresEmploi as $offre)
                             <li>{{$offre->id}}</li>
                         @endforeach
+                            <a href="create"> Créer une offre d'emploi </a>
                     </div>
                 </div>
             </div>
