@@ -23,10 +23,15 @@ class OffreEmplois extends Model {
     }
 
     public function employer(){
-            return User::findOrFail($this->id_employer)->name;
+            return User::findOrFail($this->id_employer);
     }
 
     public function candidatures(){
         return $this->hasMany('App\Candidature', 'id_offre');
     }
+
+    public function favoris() {
+        return $this->hasMany('App\Favoris', 'offer_id');
+    }
+
 }

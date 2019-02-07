@@ -12,3 +12,10 @@
     background: #999999;
     margin-bottom: 10px;
 }
+
+.encadre {
+    padding:50px;
+    background: white;
+    border: 5px solid;
+    border-radius: 10px;
+}

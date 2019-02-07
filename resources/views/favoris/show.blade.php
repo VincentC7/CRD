@@ -5,33 +5,32 @@
   <div class="row">
 
     <div class="panel panel-default">
-      <div class="panel-heading"> Voici les offres d'emploi disponibles </div>
+      <div class="panel-heading"> Voici vos offres d'emplois favoris </div>
 
       <div class="panel-body">
-        @foreach ($offresEmploi as $offre)
+        @foreach ($favoris as $favori)
         <li class="list-group-item text-info col-md-12 clearfix">
-         {{$offre->categNom()}}
+         {{$favori->offre->categNom()}}
          <div class="text-center ">
-          Nombre de candidatures pour ce post: {{sizeof($offre->candidatures()->get() )}}
+          Nombre de candidatures pour ce post: {{sizeof($favori->offre->candidatures()->get() )}}
         </div>
         <span class="pull-right">
-          <form method="GET" action="{{ route('favoris.change', $offre) }}">
+          <form method="GET" action="{{ route('favoris.change', $favori->offre) }}">
             {{ csrf_field() }}
             <button type="submit" style="background: none; padding: 0px; border: none;">
-              @if(auth()->user()->hasFavoris($offre))
+              @if(auth()->user()->hasFavoris($favori->offre))
               <i class="fas fa-star fa-2x" style="color: yellow"></i>
               @else
               <i class="far fa-star fa-2x" style="color: black"></i>
               @endif
             </button>
           </form>
-          <a href="{{URL::to('/OffreEmplois/'.$offre->id)}}" class="btn btn-info"> Détails </a></li>
+          <a href="{{URL::to('/OffreEmplois/'.$favori->offre->id)}}" class="btn btn-info"> Détails </a></li>
         </span>
         @endforeach
-        <a href="{{URL::to('/OffreEmplois/create')}}" class="btn btn-info pull-right" style="margin-top: 20px"> Créer une offre d'emploi </a>
       </div>
     </div>
 
-        </div>
-    </div>
+  </div>
+</div>
 @endsection

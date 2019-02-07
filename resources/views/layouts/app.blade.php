@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 </head>
 <body>
@@ -50,6 +51,7 @@
                         <li><a href="{{ route('register') }}">Enregistrement</a></li>
                     @else
                         <li><a href="{{ URL::to('/OffreEmplois')}}">Offres d'emploi</a></li>
+                        <li><a href="{{ route('favoris.show') }}">Mes offres favorites</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -61,6 +63,17 @@
                                         Profil
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('mesOffres') }}">
+                                        Mes Offres
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('user_candidatures') }}">
+                                        Mes Candidatures
+                                    </a>
+                                </li>
+
                                 <li>
                                     <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
