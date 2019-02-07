@@ -41,8 +41,10 @@
         </section>
         <h3 class="text-center">Votre candidature est {{$candidature->etat}}</h3>
         <div class="text-center center-block">
+            @if ( $candidature->etat!="retenue")
             <a href="{{ action('CandidatureController@accept', ['cand'=>$candidature]) }}"><button class="btn-lg btn-info"> Accepter </button></a>
             <a href="{{ action('CandidatureController@refuse', ['cand'=>$candidature]) }}"><button class="btn-lg btn-info"> Refuser </button></a>
+            @endif
         </div>
 
 
