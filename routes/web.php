@@ -35,7 +35,7 @@ Route::post('/OffreEmplois/{offre}/Postuler', 'CandidatureController@savePostul'
 
 Route::get('/profil/candidature/{id}','CandidatureController@display')->name('afficherCandidature');
 Route::get('/profil/candidature/{id}/edit','CandidatureController@editer')->name('editerCandidature');
-Route::post('/profil/candidature/{id}/edit','CandidatureController@saveEdition')->name('doEditerCandidature');
+Route::post('/profil/candidature/{candidature}/edit','CandidatureController@saveEdition')->name('doEditerCandidature');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

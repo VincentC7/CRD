@@ -13,9 +13,12 @@
 
                             <div class="form-group{{ $errors->has('transp') ? ' has-error' : '' }}">
                                 <label for="transp" class="col-md-4 control-label"> Besoin d'un transport </label>
-
                                 <div class="col-md-6">
-                                    <input id="transp" type="checkbox" name="transp" value="{{ old('transport') }}">
+                                    <input id="transp" type="checkbox" name="transp"
+                                    @if($candidature->transport==1)
+                                    checked
+                                            @endif
+                                    >
 
                                     @if ($errors->has('transp'))
                                         <span class="help-block">
@@ -29,7 +32,7 @@
                                 <label for="lieuDep" class="col-md-4 control-label"> Lieu de départ (Facultatif) </label>
 
                                 <div class="col-md-6">
-                                    <input id="lieuDep" type="text" class="form-control" name="lieuDep" placeholder="{{$candidature->lieu_dep}}">
+                                    <input id="lieuDep" type="text" class="form-control" name="lieuDep" placeholder="{{$candidature->lieuDep}}">
 
                                     @if ($errors->has('lieuDep'))
                                         <span class="help-block">

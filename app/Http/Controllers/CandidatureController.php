@@ -46,11 +46,26 @@ class CandidatureController extends Controller {
         return view('vueCandidature', ['candidature' => Candidature::findOrFail($id)]);
     }
 
-    public function saveEdition($candidature) {
-        $transport = $_POST['transp'];
-        $lieuDep = $_POST['lieuDep'];
-        $typeVehicule = $_POST['typeVehicule'];
-        $infos = $_POST['infoComp'];
+    public function saveEdition($id) {
+        $candidature = Candidature::findOrFail($id);
+        if ($candidature->id_candidat == auth()->user()->id){
+            if (request()->has('transp')) $transport=1;
+            else $transport=0;
+            $lieuDep = $_POST['lieuDep'];
+            $typeVehicule = $_POST['typeVehicule'];
+            $infos = $_POST['infoComp'];
+            $candidature->transport = $transport;
+            if (!is_null($lieuDep) && $lieuDep!="")
+            $candidature->lieuDep = $lieuDep;
+            if (!is_null($typeVehicule) && $typeVehicule!="")
+            $candidature->typeVehicule = $typeVehicule;
+            if (!is_null($infos) && $infos!="")
+            $candidature->infos = $infos;
+            $candidature->save();
+            return back();
+        } else {
+            return redirect(URL::to('/'));
+        }
 
 
     }
