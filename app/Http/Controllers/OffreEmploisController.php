@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Categorie;
 use App\OffreEmplois;
-use Faker\Provider\Company;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OffreEmploisController extends Controller {
 
@@ -28,7 +27,7 @@ class OffreEmploisController extends Controller {
         $id_cat = Categorie::where('nom', request('categorie'))->first()->id;
 
         OffreEmplois::create([
-            'id_employer'=> 1,
+            'id_employer'=> Auth::user()->id,
             'profil' => request( 'descriptionPoste'),
             'durée' => request('duree'),
             'lieu_travail' => "eazeaed",
