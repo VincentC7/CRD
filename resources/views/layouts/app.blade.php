@@ -51,6 +51,7 @@
                         <li><a href="{{ route('register') }}">Enregistrement</a></li>
                     @else
                         <li><a href="{{ URL::to('/OffreEmplois')}}">Offres d'emploi</a></li>
+                        <li><a href="{{ route('favoris.show') }}">Mes offres favorites</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
