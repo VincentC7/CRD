@@ -44,8 +44,9 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
+                    <li><a href="{{route('userlist')}}"> Liste des utilisateurs</a> </li>
                     @guest
-                        <li><a href="{{ route('login') }}">Connection</a></li>
+                        <li><a href="{{ route('login') }}">Connexion</a></li>
                         <li><a href="{{ route('register') }}">Enregistrement</a></li>
                     @else
                         <li><a href="{{ URL::to('/OffreEmplois')}}">Offres d'emploi</a></li>

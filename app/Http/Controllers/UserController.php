@@ -55,12 +55,39 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         abort_unless(auth()->user()->can('modify', $user), 404);
-        $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed'
-        ]);
-        $user->update($validated);
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $description = $_POST['description'];
+
+        if (isset($name) && $name!="") {
+            $validated = $request->validate([
+                'name' => 'required|string|max:255|unique:users']);
+            $user->update($validated);
+        }
+        if (isset($email) && $email !="") {
+            $validated = $request->validate([
+                'email' => 'required|string|email|max:255|unique:users'
+            ]);
+            $user->update($validated);
+        }
+
+        if (isset($password) && $password!="") {
+            $validated = $request->validate([
+                'password' => 'string|min:6|confirmed'
+            ]);
+            $user->update($validated);
+        }
+
+        if (isset($description) && $description!="") {
+            $validated = $request->validate([
+                'description' => 'required|string|max:255'
+            ]);
+            $user->update($validated);
+        }
+
+
+
         return view('user.profil', compact('user'));
     }
 
