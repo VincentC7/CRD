@@ -15,6 +15,7 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('id_user')->references('id')->on('users');
             $table->string('src');
             $table->timestamps();
         });
