@@ -11,10 +11,16 @@
             <div class="separator2"></div>
             {{$offre->profil}}
         </section>
-        Profil : <br/>
-        Lieu : {{$offre->lieu_travail}} <Br>
-        Durée : {{$offre->durée}} <Br>
-        Proposé par : {{$offre->employer()->name}} <Br>
+        <h3>Lieu</h3>
+        <div class="separator2"></div>
+         {{$offre->lieu_travail}}
+        <h3>Durée</h3>
+        <div class="separator2"></div>
+         {{$offre->durée}}
+        <h3> Proposé par</h3>
+        <div class="separator2"></div>
+        {{$offre->employer()->name}} <Br>
+        <Br>
         @if(auth()->user()->id != $offre->employer()->id && auth()->user()->candidatures()->where('id','=',$offre->id)->count()==0)
         <a href="{{ URL::to('/OffreEmplois/'.$offre->id.'/Postuler') }}"> <button class="btn btn-success"> Postuler </button></a>
         @endif
