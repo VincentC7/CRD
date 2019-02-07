@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Profile</div>
                 <div class="panel-body">
-                    <form action="POST" class="form text-center col-md-offset-3">
+                    <form method="POST" class="form text-center col-md-offset-3" action="{{ action('UserController@update', $user) }}">
                         {{ method_field('PATCH') }}
                         {{ csrf_field() }}
                         <div class="form-group col-md-8">
@@ -36,6 +36,10 @@
                                 <strong>{{ $errors->first('password') }}</strong>
                             </span>
                             @endif
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="password-confirm" class="control-label">Confirmation</label>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                         </div>
                         <div class="form-group col-md-8">
                             <label for="description">Description</label>
