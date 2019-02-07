@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('exemple');
 });
 
+Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('userlist');
+
+Route::get('/profil/{user}', 'UserController@afficherProfil')->name('userProfil');
+
 //TEST
 Auth::routes();
 
