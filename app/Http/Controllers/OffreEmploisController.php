@@ -40,8 +40,8 @@ class OffreEmploisController extends Controller {
 
 
 
-    public function show(OffreEmplois $offfre) {
-        //return view('projects.show', compact('project'));
+    public function show($offre) {
+        return view('detailsOffreEmploi', ['offre'=>OffreEmplois::findOrFail($offre)]);
     }
 
     public function edit(OffreEmplois $offre){

@@ -9,11 +9,11 @@
 
                     <div class="panel-body">
                         @foreach ($offresEmploi as $offre)
-                            <li class="list-group-item text-info col-md-12"> {{$offre->categNom()}}: {{$offre->profil}}, {{$offre->lieu_travail}}
-                                <a href="" class="btn btn-info pull-right"> Détails </a></li>
+                            <li class="list-group-item text-info col-md-12"> {{$offre->categNom()}}
+                                <a href="{{URL::to('/OffreEmplois/'.$offre->id)}}" class="btn btn-info pull-right"> Détails </a></li>
 
                         @endforeach
-                            <a href="{{URL::to('/OffreEmplois/create')}}"> Créer une offre d'emploi </a>
+                            <a href="{{URL::to('/OffreEmplois/create')}}" class="btn btn-info pull-right" style="margin-top: 20px"> Créer une offre d'emploi </a>
                     </div>
                 </div>
 
