@@ -25,4 +25,3 @@ Route::resource('OffreEmplois', 'OffreEmploisController');
 Route::get('/profil', function(){
     return view ('profil');
 });
-Route::resource('/create', 'OffreEmploisController@create');
