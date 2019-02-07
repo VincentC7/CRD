@@ -27,14 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token', 'admin',
     ];
 
-
-
     public function offres(){
-        return $this->hasMany('OffreEmplois::class', 'id_employer');
+        return $this->hasMany('App\OffreEmplois', 'id_employer');
+    }
+
+    public function candidatures(){
+        return $this->hasMany('App\Candidature', 'id_candidat');
     }
 
 
-    public function candidatures(){
-        return $this->hasMany('Candidature::class', 'id_candidat');
+    public function documents(){
+        return $this->hasMany('App\Document', 'id_proprietaire');
     }
 }

@@ -16,12 +16,11 @@ class CreateOffreEmploisTable extends Migration
         Schema::create('offre_emplois', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_employer')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('id_categorie')->references('id')->on('categories')->onDelete('cascade');
             $table->text('profil');
             $table->text('durée');
             $table->string('lieu_travail');
             $table->boolean('actif')->default(0);
-            $table->unsignedInteger('id_categorie')->references('id')->on('categories')->onDelete('cascade');
-            $table->string('adresse');
             $table->timestamps();
         });
     }

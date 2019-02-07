@@ -17,7 +17,11 @@ class OffreEmplois extends Model {
         return Categorie::findOrFail($this->id_categorie)->nom;
     }
 
+    public function categorie(){
+        return $this->belongsTo('App\Categorie', 'id_categorie');
+    }
+
     public function candidatures(){
-        return $this->hasMany('Candidature::class', 'id_offre');
+        return $this->hasMany('App\Candidature', 'id_offre');
     }
 }
