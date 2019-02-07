@@ -9,7 +9,7 @@
         <h1 class="list-group-item-heading page-header text-center">Liste des utilisateurs</h1>
         <br/>
     @foreach( $users  as $user)
-        <li class="list-group-item text-info col-md-12">{{$user->name}}
+        <li class="list-group-item text-info col-md-12 clearfix">{{$user->name}}
             <a href="{{\Illuminate\Support\Facades\URL::to('/profil', ['user'=>$user->id])}}" class="btn btn-info pull-right"> Description </a>
         </li>
     @endforeach
