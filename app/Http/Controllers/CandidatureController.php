@@ -24,8 +24,9 @@ class CandidatureController extends Controller {
                 'id_candidat' => Auth::user()->id,
                 'lieuDep' => request('lieuDep'),
                 'transport' => request()->has('transp'),
-                'typeVehicule' => request(''),
-            ]);
+                'typeVehicule' => request('typeVehicule'),
+                'infos'=> request('infoComp'),
+                ]);
             return redirect(route('OffreEmplois.index'));
         } else {
             return redirect(URL::to('/'));
