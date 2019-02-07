@@ -37,7 +37,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         abort_unless(auth()->user()->can('modify', $user), 404);
-        return view('user.edit');
+        return view('user.edit', compact('user'));
     }
 
     /**
