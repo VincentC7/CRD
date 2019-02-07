@@ -10,11 +10,15 @@ class OffreEmplois extends Model {
         'profil',
         'durée',
         'lieu_travail',
-        'id_categorie'
+        'id_categorie',
     ];
 
     public function categNom(){
         return Categorie::findOrFail($this->id_categorie)->nom;
+    }
+
+    public function employer(){
+        return User::findOrFail($this->id_employer)->name;
     }
 
     public function candidatures(){
