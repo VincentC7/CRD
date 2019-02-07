@@ -21,3 +21,8 @@ Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('us
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('OffreEmplois', 'OffreEmploisController');
+Route::get('/profil', function(){
+    return view ('profil');
+});
