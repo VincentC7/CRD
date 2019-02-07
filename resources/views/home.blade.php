@@ -9,15 +9,12 @@
 
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
                     Vous êtes maintenant connecté !
-                        </br></br>Identifiant : {{ Auth::user()->name }}
-                        </br> Email: {{ Auth::user()->email }}
-                        </br><a href=""> Modifier mes informations </a>
                 </div>
             </div>
         </div>
