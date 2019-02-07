@@ -11,8 +11,7 @@ class CreateCandidaturesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('candidatures', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('id_offre');
@@ -20,7 +19,7 @@ class CreateCandidaturesTable extends Migration
             $table->string('etat')->default('En attente');
             $table->string('lieuDep')->default(null);
             $table->boolean('transport');
-            $table->string('typeVehicule');
+            $table->boolean('vehiculeNormal');
             $table->timestamps();
         });
     }

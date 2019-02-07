@@ -26,11 +26,16 @@ Route::get('/profil/{user}', 'UserController@displayProfile')->name('userProfil'
 Route::get('/profil/promote/{user}', 'UserController@promoteAdmin')->name('userPromote');
 
 //TEST
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
 Route::resource('user', 'UserController')->only(['edit', 'update','destroy', 'show'])->middleware('auth');
+=======
+Auth::routes();
+
+Route::resource('user', 'UserController')->only(['edit', 'update', 'destroy', 'show'])->middleware('auth');
+>>>>>>> 3802dfff01553ec590649f6ca29de3c0e739a448
 
 Route::resource('OffreEmplois', 'OffreEmploisController');
 
@@ -38,4 +43,3 @@ Route::get('/profil', function(){
     return view ('profil');
 });
 
-Route::resource('/create', 'OffreEmploisController@create');

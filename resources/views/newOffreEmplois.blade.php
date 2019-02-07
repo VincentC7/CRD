@@ -15,7 +15,7 @@
                                 <label for="descriptionPoste" class="col-md-4 control-label"> Profil du poste </label>
 
                                 <div class="col-md-6">
-                                    <textarea name="descriptionPoste" class="textarea" placeholder="Description du poste" > {{old('descriptionPoste')}}</textarea>
+                                    <textarea name="descriptionPoste" class="form-control" placeholder="Description du poste" style="resize: vertical;"> {{old('descriptionPoste')}}</textarea>
                                     @if ($errors->has('descriptionPoste'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('descriptionPoste') }}</strong>
@@ -56,7 +56,7 @@
                                 <label for="categorie" class="col-md-4 control-label"> Categorie </label>
 
                                 <div class="col-md-6">
-                                    <select name="categorie">
+                                    <select name="categorie" class="form-control">
                                         @foreach($listeCate as $c)
                                             <option value="{{$c->nom}}">{{$c->nom}}</option>
                                         @endforeach
