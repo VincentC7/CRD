@@ -9,7 +9,9 @@
 
                     <div class="panel-body">
                         @foreach ($offresEmploi as $offre)
-                            <li class="list-group-item text-info col-md-12"> {{$offre->categNom()}}
+                            <li class="list-group-item text-info col-md-12">
+                                <div>{{$offre->categNom()}}
+                                    <div class="text-center ">Nombre de candidatures pour ce post: {{sizeof($offre->candidatures()->get() )}}</div></div>
                                 <a href="{{URL::to('/OffreEmplois/'.$offre->id)}}" class="btn btn-info pull-right"> Détails </a></li>
 
                         @endforeach
