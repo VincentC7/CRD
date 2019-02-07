@@ -3,7 +3,7 @@
 @section('content')
 
     <h1 class="text-center page-header" style="border: none">{{$user->name}}</h1>
-    <div class="separator2" style="width: 500px"></div>
+    <hr class="hr col-4"/>
 
     <section class="col-md-8 col-md-offset-2 col-sm-12 text-center">
         <h2 class="panel-heading">Description</h2>
