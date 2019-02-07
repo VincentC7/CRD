@@ -16,10 +16,10 @@ class Candidature extends Model{
     ];
 
     public function candidat(){
-        return $this->belongsTo('User::class', 'id_candidat');
+        return $this->belongsTo('App\User', 'id_candidat');
     }
 
     public function offre(){
-        return $this->belongsTo('OffreEmplois::class', 'id_offre');
+        return $this->belongsTo('App\OffreEmplois', 'id_offre');
     }
 }

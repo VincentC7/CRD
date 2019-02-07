@@ -27,7 +27,9 @@ Route::get('/mesCandidatures','UserController@showCandidatures')->middleware("au
 
 Route::get('/profil/promote/{user}', 'UserController@promoteAdmin')->name('userPromote');
 
-//TEST
+Route::get('/OffreEmplois/{offre}/Postuler', 'CandidatureController@postuler')->name('postuler');
+
+Route::post('/OffreEmplois/{offre}/Postuler', 'CandidatureController@savePostul')->name('doPostuler');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
