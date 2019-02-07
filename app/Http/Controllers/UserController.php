@@ -56,7 +56,7 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed'
         ]);
         $user->update($validated);
-        return view('user.profil', $user);
+        return view('user.profil', compact('user'));
     }
 
     /**
