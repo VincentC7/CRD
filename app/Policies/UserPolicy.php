@@ -11,6 +11,6 @@ class UserPolicy
 
     public function modify(User $user, User $model)
     {
-        return $user->id === $model->id;
+        return $user->id === $model->id || $user->admin == true;
     }
 }
