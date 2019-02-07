@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidature;
 use App\Categorie;
 use App\OffreEmplois;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +41,10 @@ class OffreEmploisController extends Controller {
     }
 
 
+    public function listCandidats($offre){
+        $candidats = OffreEmplois::findOrFail($offre)->candidatures()->get();
+        return view('OffrelistCandidats',['listeC'=> $candidats]);
+    }
 
     public function show($offre) {
         return view('detailsOffreEmploi', ['offre'=>OffreEmplois::findOrFail($offre)]);
