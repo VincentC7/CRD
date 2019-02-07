@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
 Route::resource('OffreEmplois', 'OffreEmploisController');
 
 Route::get('/profil', function(){
