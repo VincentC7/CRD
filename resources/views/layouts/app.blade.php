@@ -64,7 +64,7 @@
                                         </form>
                                     </li>
                                     <li>
-                                        <a href="/profil">
+                                        <a href="{{ route('home') }}">
                                             Profil
                                         </a>
                                     </li>
