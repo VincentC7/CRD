@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
                         @foreach ($offresEmploi as $offre)
-                            <li>{{$offre->id}}</li>
+                            <li> {{$offre->categNom($offre->id)}}: {{$offre->profil}}, {{$offre->lieu_travail}}</li>
                         @endforeach
                             <a href="/OffreEmplois/create"> Créer une offre d'emploi </a>
                     </div>
