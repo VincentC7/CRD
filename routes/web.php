@@ -23,6 +23,8 @@ Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('us
 
 Route::get('/profil/{user}', 'UserController@displayProfile')->name('userProfil');
 
+Route::get('/mesCandidatures','UserController@showCandidatures')->middleware("auth")->name('user_candidatures');
+
 Route::get('/profil/promote/{user}', 'UserController@promoteAdmin')->name('userPromote');
 
 //TEST
