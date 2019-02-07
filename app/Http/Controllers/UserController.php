@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.profil');
+        return view('user.profil', compact('user'));
     }
 
     /**
@@ -37,8 +37,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        abort_unless(auth()->user()->can('modify', $user), 404, 'LOL');
-        return view('user.edit');
+        abort_unless(auth()->user()->can('modify', $user), 404);
+        return view('user.edit', compact('user'));
     }
 
     /**

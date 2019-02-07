@@ -14,7 +14,10 @@ class OffreEmploisController extends Controller {
     }
 
     public function create() {
-        return view('newOffreEmplois', ['listeCate'=>Categorie::all()]);
+        if (isset(Auth::user()->id)){
+            return view('newOffreEmplois', ['listeCate'=>Categorie::all()]);
+        }
+        return redirect('/login');
     }
 
     public function store() {
@@ -35,6 +38,8 @@ class OffreEmploisController extends Controller {
         ]);
         return redirect('/OffreEmplois');
     }
+
+
 
     public function show(OffreEmplois $offfre) {
         //return view('projects.show', compact('project'));

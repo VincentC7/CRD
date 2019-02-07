@@ -10,6 +10,7 @@
     </h1>
     <div class="separator2" style="width: 500px"></div>
 
+
     <section class="col-md-8 col-md-offset-2 col-sm-12 text-center">
         <h2 class="panel-heading">Description</h2>
         <div class="separator2"></div>

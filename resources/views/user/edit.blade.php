@@ -11,7 +11,7 @@
                         {{ method_field('PATCH') }}
                         {{ csrf_field() }}
                         <label for='name'>Identifiant</label>
-                        <input type="text" name="name" placeholder="{{ auth()->user()->name }}">
+                        <input type="text" name="name" placeholder="{{ $user->name }}">
                     </form>
                 </div>
             </div>

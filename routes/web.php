@@ -11,6 +11,10 @@
 |
 */
 
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('exemple');
 });
@@ -23,9 +27,13 @@ Route::get('/profil/{user}', 'UserController@displayProfile')->name('userProfil'
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('user', 'UserController')->only(['edit', 'update', 'destroy', 'show'])->middleware('auth');
+
 Route::resource('OffreEmplois', 'OffreEmploisController');
 
 Route::get('/profil', function(){
     return view ('profil');
 });
+
+Route::resource('/create', 'OffreEmploisController@create');
