@@ -34,7 +34,7 @@ Route::get('/Candidature/{candidature}/Traiter', 'CandidatureController@traiter'
 Route::get('/profil/promote/{user}', 'UserController@promoteAdmin')->name('userPromote');
 
 Route::get('/OffreEmplois/{offre}/Postuler', 'CandidatureController@postuler')->name('postuler');
-
+Route::post('/OffreEmplois/{offre}/Postuler', 'CandidatureController@postuler')->name('doPostuler');
 
 Route::get('/Candidature/{cand}/Accept', 'CandidatureController@accept');
 
