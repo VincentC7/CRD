@@ -29,4 +29,5 @@ class OffreEmplois extends Model {
     public function candidatures(){
         return $this->hasMany('App\Candidature', 'id_offre');
     }
+
 }

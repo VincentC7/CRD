@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('userlist');
 
+Route::get('mesOffres', 'HomeController@mesOffres')->name('mesOffres');
+
 Route::get('/profil/{user}', 'UserController@displayProfile')->name('userProfil');
 
 Route::get('/mesCandidatures','UserController@showCandidatures')->middleware("auth")->name('user_candidatures');

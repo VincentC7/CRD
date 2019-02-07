@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\OffreEmplois;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
     /**
      * Create a new controller instance.
      *
@@ -21,8 +21,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         return view('home');
     }
+
+    public function mesOffres(){
+        $mesOffres = OffreEmplois::where('id_employer','=',auth()->user()->id)->get();
+        return view('mesOffres', ['mesOffres'=>$mesOffres]);
+    }
+
 }

@@ -62,6 +62,17 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="{{ route('mesOffres') }}">
+                                        Mes Offres
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('user_candidatures') }}">
+                                        Mes Candidatures
+                                    </a>
+                                </li>
+
+                                <li>
                                     <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
