@@ -20,7 +20,7 @@ class CreateOffreEmploisTable extends Migration
             $table->text('durée');
             $table->string('lieu_travail');
             $table->boolean('actif');
-            $table->unsignedInteger('id_categorie');
+            $table->unsignedInteger('id_categorie')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
