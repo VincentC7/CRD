@@ -5,7 +5,7 @@
 
     RewriteEngine On
 
-    RewriteBase /www/choquert4u/
+    RewriteBase /www/choquert4u/crazycharlyday/public/
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
