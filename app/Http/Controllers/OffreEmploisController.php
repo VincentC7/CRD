@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class OffreEmploisController extends Controller {
 
     public function index() {
-        //return view('projects.index', ['projects'=>Projects::all()]);
+        $offresEmploi = \App\OffreEmplois::all();
+        return view('listeOffresEmploi', compact('offresEmploi'));
     }
 
     public function create() {
