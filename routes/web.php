@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('exemple');
-});
+    return view('welcome');
+})->name('accueil');
 
 Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('userlist');
 

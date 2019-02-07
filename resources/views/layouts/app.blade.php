@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="background: #98cbe8; 	border-radius: 0 0 20px 20px;">
             <div class="container">
                 <div class="navbar-header">
 
