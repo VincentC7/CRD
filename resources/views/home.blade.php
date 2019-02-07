@@ -15,9 +15,9 @@
                     @endif
 
                     Vous êtes maintenant connecté !
-                        </br></br>Identifiant : {{ Auth::user()->name }}
-                        </br> Email: {{ Auth::user()->email }}
-                        </br><a href=""> Modifier mes informations </a>
+                        <br> <br>Identifiant : {{ Auth::user()->name }}
+                        <br> Email: {{ Auth::user()->email }}
+                        <br><a href=""> Modifier mes informations </a>
                 </div>
             </div>
         </div>

@@ -2,28 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
 use App\OffreEmplois;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OffreEmploisController extends Controller {
 
     public function index() {
-        //return view('projects.index', ['projects'=>Projects::all()]);
+        $offresEmploi = \App\OffreEmplois::all();
+        return view('listeOffresEmploi', compact('offresEmploi'));
     }
 
     public function create() {
-        return view('newOffreEmplois');
+        return view('newOffreEmplois', ['listeCate'=>Categorie::all()]);
     }
 
     public function store() {
-        /**
-         *  request()->validate([
-        'title'=> ['required', 'min:5', 'max:255'],
-        'description'=> ['required', 'min:5'],
+        request()->validate([
+            'descriptionPoste'=> ['required', 'min:5'],
+            'duree'=> ['required', 'min:5'],
+            'lieu' => ['required', 'min:5'],
         ]);
-        Projects::create(request(['title','description']));
-        return redirect('/projects');
-         */
+
+        $id_cat = Categorie::where('nom', request('categorie'))->first()->id;
+
+        OffreEmplois::create([
+            'id_employer'=> Auth::user()->id,
+            'profil' => request( 'descriptionPoste'),
+            'durée' => request('duree'),
+            'lieu_travail' => "eazeaed",
+            'id_categorie' => $id_cat,
+        ]);
+        return redirect('/OffreEmplois');
     }
 
     public function show(OffreEmplois $offfre) {

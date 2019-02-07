@@ -19,7 +19,7 @@ class CreateOffreEmploisTable extends Migration
             $table->text('profil');
             $table->text('durée');
             $table->string('lieu_travail');
-            $table->boolean('actif');
+            $table->boolean('actif')->default(0);
             $table->unsignedInteger('id_categorie')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
@@ -30,8 +30,7 @@ class CreateOffreEmploisTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('offre_emplois');
     }
 }
