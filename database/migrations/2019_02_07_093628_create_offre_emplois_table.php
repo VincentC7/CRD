@@ -15,7 +15,7 @@ class CreateOffreEmploisTable extends Migration
     {
         Schema::create('offre_emplois', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_employer');
+            $table->unsignedInteger('id_employer')->references('id')->on('users')->onDelete('cascade');
             $table->text('profil');
             $table->text('durée');
             $table->string('lieu_travail');
