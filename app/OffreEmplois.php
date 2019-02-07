@@ -23,7 +23,7 @@ class OffreEmplois extends Model {
     }
 
     public function employer(){
-            return User::findOrFail($this->id_employer)->name;
+            return User::findOrFail($this->id_employer);
     }
 
     public function candidatures(){
