@@ -10,7 +10,7 @@
         <br/>
     @foreach( $users  as $user)
         <li class="list-group-item text-info col-md-12">{{$user->name}}
-            <a href="/profil/{{$user->id }}" class="btn btn-info pull-right"> Description </a>
+            <a href="{{\Illuminate\Support\Facades\URL::to('/profil', ['user'=>$user->id])}}" class="btn btn-info pull-right"> Description </a>
         </li>
     @endforeach
     </ul>

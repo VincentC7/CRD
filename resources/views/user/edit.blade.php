@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Profile</div>
+                <div class="panel-heading">Editer le Profil</div>
                 <div class="panel-body">
                     <form method="POST" class="form text-center col-md-offset-3" action="{{ action('UserController@update', $user) }}">
                         {{ method_field('PATCH') }}

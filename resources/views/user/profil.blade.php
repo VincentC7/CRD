@@ -2,7 +2,17 @@
 
 @section('content')
 
-    <h1 class="text-center page-header" style="border: none">{{$user->name}}</h1>
+    <h1 class="text-center page-header" style="border: none">{{$user->name}}
+        @if((isset($admin) && $admin) || $user->admin==1 )
+            @if($user->admin==0)
+            <a class="badge btn-danger" href="/profil/promote/{{$user->id }}">Promouvoir administrateur</a>
+            @else
+                <span class="badge badge-danger" style="background-color: darkred">Administrateur</span>
+            @endif
+            <h5 class="text-center">{{$user->email}}</h5>
+        @endif
+    </h1>
+
     <div class="separator2" style="width: 500px"></div>
 
     <section class="col-md-8 col-md-offset-2 col-sm-12 text-center">
@@ -15,10 +25,11 @@
             <div><p>{{$user->description}}</p></div>
         @endif
 
-        <div class="separator2"></div>
+
 
         @can('modify', $user)
-            <a href="{{ route('user.edit', $user) }}" class="btn btn-primary is-link">Modifier le profil</a>
+            <div class="separator2"></div>
+            <a href="{{ route('user.edit', $user) }}" class="btn btn-dark is-link">Modifier le profil</a>
         @endcan
     </section>
 

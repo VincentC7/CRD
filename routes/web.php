@@ -21,11 +21,15 @@ Route::get('/', function () {
 
 Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('userlist');
 
-Route::get('/profil/{user}', 'UserController@afficherProfil')->name('userProfil');
+Route::get('/profil/{user}', 'UserController@displayProfile')->name('userProfil');
+
+Route::get('/profil/promote/{user}', 'UserController@promoteAdmin')->name('userPromote');
 
 //TEST
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('user', 'UserController')->only(['edit', 'update','destroy', 'show'])->middleware('auth');
 
 Auth::routes();
 
