@@ -8,10 +8,10 @@
                     <div class="panel-heading"> <h2> Cerrer une nouvelle offre </h2> </div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                        <form class="form-horizontal" method="POST" action="{{ action('OffreEmploisController@store') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('descriptionPoste') ? ' has-error' : '' }}">
                                 <label for="descriptionPoste" class="col-md-4 control-label"> Profil du poste </label>
 
                                 <div class="col-md-6">
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('duree') ? ' has-error' : '' }}">
                                 <label for="duree" class="col-md-4 control-label"> Duree du poste </label>
 
                                 <div class="col-md-6">
@@ -38,15 +38,28 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('lieu') ? ' has-error' : '' }}">
+                                <label for="lieu" class="col-md-4 control-label"> Lieu du travail </label>
+
+                                <div class="col-md-6">
+                                    <input id="lieu" type="text" class="form-control" name="lieu" value="{{ old('lieu') }}" required>
+
+                                    @if ($errors->has('lieu'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('lieu') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group{{ $errors->has('categorie') ? ' has-error' : '' }}">
                                 <label for="categorie" class="col-md-4 control-label"> Categorie </label>
 
                                 <div class="col-md-6">
-                                    <select name="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="fiat">Fiat</option>
-                                        <option value="audi">Audi</option>
+                                    <select name="categorie">
+                                        @foreach($listeCate as $c)
+                                            <option value="{{$c->nom}}">{{$c->nom}}</option>
+                                        @endforeach
                                     </select>
 
                                     @if ($errors->has('categorie'))

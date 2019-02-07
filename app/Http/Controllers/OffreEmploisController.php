@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
 use App\OffreEmplois;
+use Faker\Provider\Company;
 use Illuminate\Http\Request;
 
 class OffreEmploisController extends Controller {
@@ -13,18 +15,26 @@ class OffreEmploisController extends Controller {
     }
 
     public function create() {
-        return view('newOffreEmplois');
+        return view('newOffreEmplois', ['listeCate'=>Categorie::all()]);
     }
 
     public function store() {
-        /**
-         *  request()->validate([
-        'title'=> ['required', 'min:5', 'max:255'],
-        'description'=> ['required', 'min:5'],
+        request()->validate([
+            'descriptionPoste'=> ['required', 'min:5'],
+            'duree'=> ['required', 'min:5'],
+            'lieu' => ['required', 'min:5'],
         ]);
-        Projects::create(request(['title','description']));
-        return redirect('/projects');
-         */
+
+        $id_cat = Categorie::where('nom', request('categorie'))->first()->id;
+
+        OffreEmplois::create([
+            'id_employer'=> 1,
+            'profil' => request( 'descriptionPoste'),
+            'durée' => request('duree'),
+            'lieu_travail' => "eazeaed",
+            'id_categorie' => $id_cat,
+        ]);
+        return redirect('/OffreEmplois');
     }
 
     public function show(OffreEmplois $offfre) {
