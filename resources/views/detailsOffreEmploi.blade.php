@@ -3,8 +3,10 @@
 @section('content')
 
     <h1 class="text-center page-header" style="border: none">{{$offre->categNom()}}</h1>
-    <div>
-
+    <div class="container">
+        <div class="row">
         Profil: {{$offre->profil}}
+
+        </div>
     </div>
 @endsection
