@@ -15,13 +15,15 @@ Route::get('/', function () {
     return view('exemple');
 });
 
+Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('userlist');
+
+Route::get('/profil/{user}', 'UserController@afficherProfil')->name('userProfil');
+
 //TEST
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
+Route::resource('user', 'UserController')->only(['edit', 'update', 'destroy', 'show'])->middleware('auth');
 Route::resource('OffreEmplois', 'OffreEmploisController');
 
 Route::get('/profil', function(){
