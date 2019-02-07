@@ -33,7 +33,29 @@ class CandidatureController extends Controller {
 
     }
 
+    public function editer($id) {
+        $candidature = Candidature::findOrFail($id);
+        if ($candidature->id_candidat==auth()->user()->id) {
+            return view('candidatures.edit',['candidature'=>$candidature, 'offre'=>$candidature->offre()->first()]);
+        } else {
+            return redirect(URL::to('/'));
+        }
+    }
+
     public function display($id) {
         return view('vueCandidature', ['candidature' => Candidature::findOrFail($id)]);
+    }
+
+    public function saveEdition($candidature) {
+        $transport = $_POST['transp'];
+        $lieuDep = $_POST['lieuDep'];
+        $typeVehicule = $_POST['typeVehicule'];
+        $infos = $_POST['infoComp'];
+
+
+    }
+
+    public function update(Request $request, Candidature $candidature) {
+
     }
 }

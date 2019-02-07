@@ -34,6 +34,8 @@ Route::get('/OffreEmplois/{offre}/Postuler', 'CandidatureController@postuler')->
 Route::post('/OffreEmplois/{offre}/Postuler', 'CandidatureController@savePostul')->name('doPostuler');
 
 Route::get('/profil/candidature/{id}','CandidatureController@display')->name('afficherCandidature');
+Route::get('/profil/candidature/{id}/edit','CandidatureController@editer')->name('editerCandidature');
+Route::post('/profil/candidature/{id}/edit','CandidatureController@saveEdition')->name('doEditerCandidature');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -44,6 +46,8 @@ Auth::routes();
 Route::resource('user', 'UserController')->only(['edit', 'update', 'destroy', 'show'])->middleware('auth');
 
 Route::resource('OffreEmplois', 'OffreEmploisController');
+
+
 
 Route::get('/profil', function(){
     return view ('profil');

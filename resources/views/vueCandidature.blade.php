@@ -43,6 +43,15 @@
         <div class="text-center center-block">
             <a href="{{URL::to('/OffreEmplois/'.$candidature->offre()->first()->id)}}"><button class="btn-lg btn-info">Voir l'offre</button></a>
         </div>
+        <br>
+        <div class="text-center center-block">
+            <a href="{{URL::to('/profil/candidature/'.$candidature->id.'/edit')}}"><button class="btn-lg btn-dark">Modifier la candidature</button></a>
+        </div>
+        <br>
+        <div class="text-center center-block">
+            <a href=""><button class="btn-lg btn-danger">Supprimer la candidature</button></a>
+        </div>
+
 
 
 
