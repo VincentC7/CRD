@@ -9,7 +9,7 @@
             <h3>Transport spécifique</h3>
             <p>
                 @if($candidature->transport==1)
-                    Type de véhicule : {{$candidature->type}}
+                    Type de véhicule : {{$candidature->typeVehicule}}
                 @else
                     Aucun transport demandé
 
@@ -21,34 +21,30 @@
         <section class="border-dark text-center">
             <h3 >Lieu de départ</h3>
             <p>
-                @if(is_null($candidature->lieu_dep) || $candidature->lieu_dep=="")
+                @if(is_null($candidature->lieuDep) || $candidature->lieuDep=="")
                     Non spécifié
                 @else
-                    {{$candidature->lieu_dep}}
+                    {{$candidature->lieuDep}}
                 @endif
+            </p>
+        </section>
+        <section class="border-dark text-center">
+            <h3 >Lieu de arrive</h3>
+            <p>
+              {{$candidature->offre()->first()->lieu_travail}}
             </p>
         </section>
         <div class="separator2"></div>
         <section class="border-dark text-center">
             <h3>Informations complémentaires</h3>
             <p>
-                @if(is_null($candidature->lieu_dep) || $candidature->lieu_dep=="")
+                @if(is_null($candidature->infos) || $candidature->infos=="")
                     Vous n'avez spécifié aucune information supplémentaire
                 @else
-                    {{$candidature}}->infos
+                    {{$candidature->infos}}
                 @endif
             </p>
         </section>
-        <h3 class="text-center">Votre candidature est {{$candidature->etat}}</h3>
-        <div class="text-center center-block">
-            @if ( $candidature->etat!="retenue")
-            <a href="{{ action('CandidatureController@accept', ['cand'=>$candidature]) }}"><button class="btn-lg btn-info"> Accepter </button></a>
-            <a href="{{ action('CandidatureController@refuse', ['cand'=>$candidature]) }}"><button class="btn-lg btn-info"> Refuser </button></a>
-            @endif
-        </div>
-
-
-
     </div>
 
 

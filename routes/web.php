@@ -35,14 +35,20 @@ Route::get('/profil/promote/{user}', 'UserController@promoteAdmin')->name('userP
 
 Route::get('/OffreEmplois/{offre}/Postuler', 'CandidatureController@postuler')->name('postuler');
 
+Route::post('/OffreEmplois/{offre}/Postuler', 'CandidatureController@savePostul')->name('doPostuler');
 
 Route::get('/Candidature/{cand}/Accept', 'CandidatureController@accept');
 
 Route::get('/Candidature/{cand}/Refuse', 'CandidatureController@refuse');
 
 Route::get('/profil/candidature/{id}','CandidatureController@display')->name('afficherCandidature');
+
+Route::get('/profil/candidature/{id}/Public','CandidatureController@displayPublic')->name('afficherCandidaturePublic');
+
 Route::get('/profil/candidature/{id}/edit','CandidatureController@editer')->name('editerCandidature');
+
 Route::get('/profil/candidature/{id}/delete','CandidatureController@delete')->name('deleteCandidature');
+
 Route::post('/profil/candidature/{candidature}/edit','CandidatureController@saveEdition')->name('doEditerCandidature');
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -65,3 +71,4 @@ Route::get('/OffreEmplois/{offre}/changeFavoris', 'FavorisController@change')->m
 
 Route::get('/favoris', 'FavorisController@show')->middleware('auth')->name('favoris.show');
 
+Route::get('/Trasports', 'TransportsController@show')->name('transports');

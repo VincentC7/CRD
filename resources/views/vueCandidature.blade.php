@@ -35,7 +35,7 @@
                 @if(is_null($candidature->infos) || $candidature->infos=="")
                     Vous n'avez spécifié aucune information supplémentaire
                 @else
-                    {{$candidature}}->infos
+                    {{$candidature->infos}}
                 @endif
             </p>
         </section>

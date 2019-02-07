@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="background: #98cbe8; 	border-radius: 0 0 20px 20px;">
             <div class="container">
                 <div class="navbar-header">
 
@@ -51,6 +51,7 @@
                         <li><a href="{{ route('login') }}">Connexion</a></li>
                         <li><a href="{{ route('register') }}">Enregistrement</a></li>
                     @else
+                        <li><a href="{{route('transports')}}"> Transports </a> </li>
                         <li><a href="{{ URL::to('/OffreEmplois')}}">Offres d'emploi</a></li>
                         <li><a href="{{ route('favoris.show') }}">Mes offres favorites</a></li>
                         <li class="dropdown">
