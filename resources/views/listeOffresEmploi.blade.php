@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
                         @foreach ($offresEmploi as $offre)
-                            <li>{{$offre->profil}}</li>
+                            <li>{{$offre->id}}</li>
                         @endforeach
                     </div>
                 </div>
