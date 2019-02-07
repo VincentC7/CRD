@@ -17,10 +17,10 @@ class CreateCandidaturesTable extends Migration
             $table->unsignedInteger('id_offre')->references('id')->on('offre_emplois');;
             $table->unsignedInteger('id_candidat')->references('id')->on('users');
             $table->string('etat')->default('En attente');
-            $table->string('lieuDep')->default(null);
-            $table->boolean('transport');
-            $table->string('typeVehicule');
-            $table->string('infos');
+            $table->string('lieuDep')->nullable();
+            $table->boolean('transport')->default(0);
+            $table->string('typeVehicule')->nullable();
+            $table->string('infos')->nullable();
             $table->timestamps();
         });
     }
