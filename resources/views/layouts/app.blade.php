@@ -45,7 +45,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                        <li><a href="{{ route('login') }}">Connection</a></li>
+                        <li><a href="{{ route('login') }}">Connexion</a></li>
                         <li><a href="{{ route('register') }}">Enregistrement</a></li>
                         @else
                         <li class="dropdown">
@@ -63,7 +63,7 @@
                                     <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    Déconnection
+                                    Déconnexion
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

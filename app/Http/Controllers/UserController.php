@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class UserController extends Controller
 {
@@ -41,6 +43,8 @@ class UserController extends Controller
         return view('user.edit', compact('user'));
     }
 
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -68,10 +72,21 @@ class UserController extends Controller
         return view('userlist',['users'=>User::all()]);
     }
 
+    public function promoteAdmin($us) {
+        $user = User::findOrFail($us);
+        if (Auth::user()->admin==1 && $user->admin==0) {
+            $user->admin=1;
+            $user->save();
+            return back();
+        } else {
+            return redirect(URL::to('/'));
+        }
+    }
+
     public function displayProfile($us) {
         $admin = Auth::user()->admin==1;
-
-
         return view('user.profil',['user'=>User::findOrFail($us), 'admin'=>$admin]);
     }
+
+
 }
