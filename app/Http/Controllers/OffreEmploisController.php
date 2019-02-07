@@ -26,8 +26,7 @@ class OffreEmploisController extends Controller {
             'duree'=> ['required', 'min:5'],
             'lieu' => ['required', 'min:5'],
         ]);
-
-        $id_cat = Categorie::where('nom', request('categorie'))->first()->id;
+        $id_cat = Categorie::where('nom','=', request('categorie'))->first()->id;
 
         OffreEmplois::create([
             'id_employer'=> Auth::user()->id,
