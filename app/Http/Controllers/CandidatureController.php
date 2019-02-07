@@ -46,6 +46,24 @@ class CandidatureController extends Controller {
         return view('vueCandidature', ['candidature' => Candidature::findOrFail($id)]);
     }
 
+    public function traiter($candidature){
+        return view('traiterCandidature', ['candidature' => Candidature::findOrFail($candidature)]);
+    }
+
+    public function accept($candidature){
+        Candidature::findOrFail($candidature)->update([
+            'etat' => 'retenue'
+        ]);
+        return back();
+    }
+
+    public function refuse($candidature){
+        Candidature::findOrFail($candidature)->update([
+            'etat' => 'refusée'
+        ]);
+        return back();
+    }
+
     public function saveEdition($id) {
         $candidature = Candidature::findOrFail($id);
         if ($candidature->id_candidat == auth()->user()->id){
