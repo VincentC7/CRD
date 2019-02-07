@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('exemple');
 });
 
+Route::get('/userlist', 'UserController@userList')->middleware("auth")->name('userlist');
+
 //TEST
 Auth::routes();
 
