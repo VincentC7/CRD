@@ -2,10 +2,16 @@
 
 @section('content')
 
-    <h1 class="text-center page-header" style="border: none">{{$offre->categNom()}}</h1>
-    <div class="col-md-offset-2 col-md-8 text-center ">
 
-        Profil : {{$offre->profil}} <br/>
+    <div class="col-md-offset-2 col-md-8 text-center encadre text-center">
+        <h1 class="text-center page-header panel-heading" style="border: none">{{$offre->categNom()}}</h1>
+        <div class="separator2" style="width: 500px"></div>
+        <section>
+            <h3>Profil</h3>
+            <div class="separator2"></div>
+            {{$offre->profil}}
+        </section>
+        Profil : <br/>
         Lieu : {{$offre->lieu_travail}} <Br>
         Durée : {{$offre->durée}} <Br>
         Proposé par : {{$offre->employer()->name}} <Br>
