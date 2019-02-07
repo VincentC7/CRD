@@ -18,7 +18,7 @@ class CandidatureController extends Controller {
 
     public function savePostul($offre){
         $o = OffreEmplois::findOrFail($offre);
-        if(\auth()->user()->candidatures()->where('id','=',$offre)->count()==0){
+        if(\auth()->user()->candidatures()->where('id_offre','=',$offre)->count()==0){
             Candidature::create([
                 'id_offre' => $o->id,
                 'id_candidat' => Auth::user()->id,

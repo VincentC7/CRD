@@ -11,4 +11,8 @@ class TransportsController extends Controller {
         return view('listeBesoinTransp', ['transports'=>$besoins]);
     }
 
+    public function postuler(){
+
+    }
+
 }
